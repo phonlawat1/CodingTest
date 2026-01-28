@@ -44,7 +44,8 @@ function Page({}: Props) {
   );
 
   const handleAddTask = (title: string) => {
-    const newTask = [...tasks, { id: tasks.length + 1, title: title }];
+    let maxId = tasks.length ? tasks[tasks.length - 1].id : 0;
+    const newTask = [...tasks, { id: maxId + 1, title: title }];
     setTasks(newTask);
     saveTasks(newTask);
   };
